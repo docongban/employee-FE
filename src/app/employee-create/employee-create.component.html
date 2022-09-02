@@ -1,0 +1,42 @@
+<div class="container" style="width: 50%;">
+    <form (ngSubmit) = "onSubmit()" [formGroup]="createForm">
+        <div class="form-group">
+            <label for="fullname">Fullname</label>
+            <input type="text" class="form-control" id="fullname" [(ngModel)]="employee.fullname" formControlName="fullname">
+            <div class="" *ngIf="form['fullname'].invalid && (form['fullname'].dirty || form['fullname'].touched)">
+                <span *ngIf="form['fullname'].getError('required')!=null" class="error-input">Vui lòng nhập họ tên</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" [(ngModel)]="employee.address" formControlName="address">
+            <div class="" *ngIf="form['address'].invalid && (form['address'].dirty || form['address'].touched)">
+                <span *ngIf="form['address'].getError('required')!=null" class="error-input">Vui lòng nhập địa chỉ</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="text" class="form-control" id="age" [(ngModel)]="employee.age" formControlName="age">
+            <div class="" *ngIf="form['age'].invalid && (form['age'].dirty || form['age'].touched)">
+                <span *ngIf="form['age'].getError('required')!=null" class="error-input">Vui lòng nhập tuổi</span>
+                <span *ngIf="form['age'].getError('pattern')!=null" class="error-input">Vui lòng nhập số</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="employee.username" formControlName="username">
+            <div class="" *ngIf="form['username'].invalid && (form['username'].dirty || form['username'].touched)">
+                <span *ngIf="form['username'].getError('required')!=null" class="error-input">Vui lòng nhập uername</span>
+            </div>
+            <span class="error-input">{{ usernameExisted }}</span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="employee.password" formControlName="password">
+            <div class="" *ngIf="form['password'].invalid && (form['password'].dirty || form['password'].touched)">
+                <span *ngIf="form['password'].getError('required')!=null" class="error-input">Vui lòng nhập mật khẩu</span>
+            </div>
+        </div>
+        <button class="btn btn-success">Submit</button>
+    </form>
+</div>

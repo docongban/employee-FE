@@ -1,0 +1,26 @@
+<table class="table table-striped">
+    <thead>
+        <a routerLink="employee-create" routerLinkActive="active" class="btn btn-primary" >Add Employee</a>
+      <tr>
+        <th scope="col">Fullname</th>
+        <th scope="col">Address</th>
+        <th scope="col">Age</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{employee.fullname}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.age}}</td>
+        <td>{{employee.username}}</td>
+        <td>{{employee.password}}</td>
+        <td>
+          <button (click)="updateEmployee(employee.id)" class="btn btn-info">Update</button>
+          <button (click)="deleteEmployee(employee.id)" type="button" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
