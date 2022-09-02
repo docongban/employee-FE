@@ -8,14 +8,14 @@ import { Employee } from '../Entity/employee';
 })
 export class EmployeeService {
 
-  private baseUrl = 'http://localhost:8088/api/v1/employees'
+  private baseUrl = 'https://be-employee.herokuapp.com/api/v1/employees'
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
   checkUsername(employee: Employee): Observable<Employee>{
-    return this.httpClient.post<Employee>(`http://localhost:8088/api/v1/usernameExists`, employee)
+    return this.httpClient.post<Employee>(`https://be-employee.herokuapp.com/api/v1/usernameExists`, employee)
   }
 
   getEmployeeList(): Observable<Employee[]>{
